@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "AccessiAI",
+  "version": "1.0.2",
+  "description": "Making the Web Accessible for Everyone",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AccessiAI",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+    "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "commands": {
+    "accessiai_simplify": { "suggested_key": { "default": "Alt+S" }, "description": "Simplify selection" },
+    "accessiai_explain":  { "suggested_key": { "default": "Alt+X" }, "description": "Explain selection" },
+    "accessiai_translate":{ "suggested_key": { "default": "Alt+T" }, "description": "Translate selection" },
+    "accessiai_correct":  { "suggested_key": { "default": "Alt+C" }, "description": "Correct selection" }
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["languages.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+

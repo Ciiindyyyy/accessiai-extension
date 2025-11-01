@@ -1,0 +1,534 @@
+:root{
+  --aa-primary:#2563EB;--aa-secondary:#0FBFB4;--aa-violet:#7C3AED;--aa-pink:#F52F7E;--aa-cta:#F97316;
+  --aa-bg:#F9FAFB;--aa-text:#111827;--aa-muted:#6B7280;--aa-border:#E5E7EB;--aa-card:#FFFFFF;
+  --aa-shadow:0 12px 32px rgba(15,23,42,.12),0 4px 10px rgba(15,23,42,.08);
+  --aa-radius:18px;--aa-radius-sm:14px
+}
+@media(prefers-color-scheme:dark){:root{--aa-bg:#0B1220;--aa-text:#F3F4F6;--aa-border:#1F2937;--aa-card:#0F172A;--aa-shadow:0 12px 32px rgba(0,0,0,.55),0 4px 10px rgba(0,0,0,.35)}}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{width:460px;min-height:600px;background:radial-gradient(1200px 600px at -10% -10%,rgba(37,99,235,.06),transparent 40%),radial-gradient(1200px 600px at 110% 20%,rgba(15,191,180,.06),transparent 40%),var(--aa-bg);color:var(--aa-text);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",Arial}
+.aa-app{display:grid;gap:14px;padding:16px}
+.aa-banner{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:var(--aa-radius);background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(15,191,180,.12));border:1px solid var(--aa-border);box-shadow:var(--aa-shadow)}
+.aa-brand{display:flex;align-items:center;gap:12px}
+.aa-logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-right: 10px;
+}
+
+/*.aa-logo{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aa-primary),var(--aa-secondary));color:#fff;font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(37,99,235,.25),0 2px 8px rgba(15,191,180,.25)}*/
+.aa-title{margin:0;font-size:18px;font-weight:800;letter-spacing:.2px}.aa-tag{margin:2px 0 0;font-size:12px;color:var(--aa-muted)}
+.aa-icon-btn{border:1px solid var(--aa-border);background:var(--aa-card);border-radius:12px;padding:8px 10px;cursor:pointer;box-shadow:var(--aa-shadow)}.aa-icon-btn:hover{border-color:var(--aa-secondary);transform:translateY(-1px)}.aa-icon-btn:focus-visible{outline:2px solid var(--aa-pink);outline-offset:2px}
+.aa-panel{background:var(--aa-card);border:1px solid var(--aa-border);border-radius:var(--aa-radius);padding:14px;box-shadow:var(--aa-shadow)}
+.aa-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.aa-section-title{margin:0 0 10px;font-size:14px;font-weight:700;letter-spacing:.2px}
+.aa-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.aa-action{display:flex;gap:10px;align-items:center;text-align:left;padding:14px;border-radius:16px;cursor:pointer;border:1px solid var(--aa-border);background:linear-gradient(180deg,var(--aa-card),rgba(255,255,255,.92));box-shadow:var(--aa-shadow);transition:transform .08s ease,border-color .15s ease,box-shadow .2s ease}
+.aa-action:hover{transform:translateY(-2px);border-color:var(--aa-primary)}.aa-action:active{transform:translateY(0)}.aa-action:focus-visible{outline:2px solid var(--aa-violet);outline-offset:2px}.aa-action[disabled]{opacity:.6;cursor:not-allowed}
+.aa-action-ico{font-size:20px}.aa-action-title{font-weight:700}.aa-action-desc{display:block;font-size:12px;color:var(--aa-muted)}
+.aa-status-row{display:flex;align-items:center;gap:10px;margin-top:12px}.aa-hint{font-size:12px;color:var(--aa-muted)}
+.aa-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid var(--aa-border);background:var(--aa-card);box-shadow:var(--aa-shadow)}.aa-chip-ok{border-color:var(--aa-secondary)}.aa-chip-warn{border-color:var(--aa-cta)}.aa-chip-muted{color:var(--aa-muted)}
+.aa-result{border:1px solid var(--aa-border);border-radius:14px;padding:12px;min-height:160px;max-height:240px;overflow:auto;background:var(--aa-card);box-shadow:var(--aa-shadow)}.aa-placeholder{color:var(--aa-muted);margin:0}
+/* Chat button */
+.aa-chat-btn{margin-top:12px;width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--aa-border);background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(245,47,126,.12));box-shadow:var(--aa-shadow);font-weight:700;cursor:pointer}
+.aa-chat-btn:hover{transform:translateY(-1px)}
+/* Views */
+.view{display:block}
+.view[hidden]{display:none}
+.aa-back{border:1px solid var(--aa-border);background:var(--aa-card);border-radius:10px;padding:6px 10px;cursor:pointer;box-shadow:var(--aa-shadow)}
+/* Forms */
+.aa-form{display:grid;gap:10px;margin-top:8px}
+.aa-label{font-size:13px;font-weight:600}
+.aa-textarea{width:100%;border:1px solid var(--aa-border);border-radius:12px;padding:10px;background:var(--aa-card);color:var(--aa-text);resize:vertical;min-height:120px}
+.aa-input{width:100%;border:1px solid var(--aa-border);border-radius:10px;padding:10px;background:var(--aa-card);color:var(--aa-text)}
+.aa-form-row{display:flex;gap:8px}
+.aa-btn{border:1px solid var(--aa-border);background:var(--aa-card);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--aa-shadow)}
+.aa-btn-primary{border:1px solid var(--aa-primary);background:linear-gradient(135deg,var(--aa-primary),var(--aa-secondary));color:#fff;border-radius:12px;padding:8px 14px;cursor:pointer;box-shadow:var(--aa-shadow)}
+
+/* Modal/Toast identiques à v3 */
+.aa-modal{border:none;border-radius:16px;padding:0;box-shadow:var(--aa-shadow);width:92%;max-width:520px}
+.aa-modal::backdrop{background:rgba(2,6,23,.55);backdrop-filter:blur(1px)}
+.aa-modal-card{display:grid;grid-template-rows:auto 1fr auto;max-height:75vh;background:var(--aa-card)}
+.aa-modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--aa-border)}
+.aa-modal-body{padding:12px 14px;overflow:auto}.aa-modal-footer{padding:12px 14px;border-top:1px solid var(--aa-border)}
+.aa-list{margin:8px 0 0 18px;padding:0}.aa-list li{margin:6px 0}
+.aa-toast{position:fixed;inset-inline:16px;bottom:16px;background:var(--aa-card);border:1px solid var(--aa-border);border-left:4px solid var(--aa-secondary);border-radius:12px;padding:10px 12px;box-shadow:var(--aa-shadow)}
+
+/* ==== Floating Bubble Toggle ==== */
+.aa-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 12px 0;
+  padding: 6px 10px;
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.aa-toggle-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* iOS-style switch */
+.aa-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.aa-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.aa-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #d1d5db;
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.aa-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.aa-switch input:checked + .aa-slider {
+  background-color: #0FBFB4; /* turquoise AccessiAI */
+}
+
+.aa-switch input:checked + .aa-slider:before {
+  transform: translateX(20px);
+}
+/*-----------------------------*/
+/* ==== Translate view – modern touches ==== */
+#aa .aa-panel.view { /* si tu n'as pas de #aa, garde .aa-panel.view */
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, .12);
+}
+
+/* Ligne des selects + swap */
+#translateControls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Selects “cards” */
+#aa .aa-select select,
+#trFrom, #trTo {
+  appearance: none;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+  line-height: 1.2;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04) inset;
+  transition: box-shadow .15s, border-color .15s, transform .06s;
+}
+@media (prefers-color-scheme: dark) {
+  #aa .aa-select select,
+  #trFrom, #trTo {
+    background: #0F172A;
+    border-color: rgba(255,255,255,.12);
+    box-shadow: 0 1px 2px rgba(0,0,0,.5) inset;
+    color: #E5E7EB;
+  }
+}
+#trFrom:focus, #trTo:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.2);
+  outline: none;
+}
+
+/* Bouton Swap “pill” */
+#trSwap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: linear-gradient(180deg, #fff, #F9FAFB);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  transition: transform .06s, box-shadow .15s, background .15s;
+}
+#trSwap:hover { box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+#trSwap:active { transform: translateY(1px); }
+@media (prefers-color-scheme: dark) {
+  #trSwap { background: linear-gradient(180deg,#0B1220,#0F172A); border-color: rgba(255,255,255,.1); }
+}
+
+/* Textarea */
+#translateInput.aa-textarea {
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+  padding: 12px 14px;
+  resize: vertical;
+  min-height: 130px;
+  transition: box-shadow .15s, border-color .15s;
+}
+#translateInput.aa-textarea:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.2);
+  outline: none;
+}
+@media (prefers-color-scheme: dark) {
+  #translateInput.aa-textarea {
+    background: #0F172A;
+    color: #E5E7EB;
+    border-color: rgba(255,255,255,.12);
+  }
+}
+
+/* CTA Translate = gradient bleu -> aqua (palette AccessiAI) */
+#translateRun.aa-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #2563EB, #0FBFB4);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, .25);
+  transition: filter .15s, transform .06s, box-shadow .15s;
+}
+#translateRun.aa-btn:hover { filter: saturate(1.1); box-shadow: 0 14px 28px rgba(37, 99, 235, .33); }
+#translateRun.aa-btn:active { transform: translateY(1px); }
+
+/* Copy disabled/ready */
+#translateCopy.aa-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* Petit hint sous le textarea */
+.aa-hint {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .8;
+}
+
+/* Skeleton pour la zone résultat */
+.aa-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0,0,0,.05), rgba(0,0,0,.08), rgba(0,0,0,.05));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+  border-radius: 10px;
+  min-height: 64px;
+}
+@keyframes shimmer { 0% {background-position: 200% 0;} 100% {background-position: -200% 0;} }
+
+/* Spinner dans le bouton (data-loading) sans JS supplémentaire */
+#translateRun[data-loading="1"] {
+  position: relative;
+  pointer-events: none;
+  filter: grayscale(.2) brightness(.95);
+}
+#translateRun[data-loading="1"]::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 16px; height: 16px;
+  margin-top: -8px;
+  border: 2px solid rgba(255,255,255,.7);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* === Translate row: perfect vertical alignment === */
+#view-translate #translateControls {
+  display: flex;
+  align-items: center;         /* centers vertical baselines */
+  gap: 12px;
+}
+
+/* Labels wrapping the selects */
+#view-translate label.aa-select {
+  display: flex;
+  align-items: center;
+  margin: 0;                   /* neutralize UA default margins */
+}
+
+/* Normalize native selects so both have identical height */
+#view-translate select {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  height: 36px;                /* force same height */
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;      /* extra guard on some UAs */
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background: #fff;
+  color: #111827;
+}
+
+/* Swap button centered & same height as selects */
+#view-translate #trSwap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2563EB, #0FBFB4);
+  color: #fff;
+  transition: transform .15s ease;
+}
+#view-translate #trSwap:hover { transform: rotate(180deg); }
+
+/* input row */
+.aa-send { height:40px; min-width:80px; border:0; border-radius:12px; color:#fff; background:linear-gradient(135deg,#2563EB,#0FBFB4); cursor:pointer; }
+.aa-send:disabled{ opacity:.6; cursor:not-allowed }
+.aa-icon{ height:40px; min-width:40px; border:1px solid rgba(0,0,0,.1); border-radius:12px; background:#fff; cursor:pointer }
+
+/* attachments preview placeholder */
+.aa-attach{ display:flex; gap:8px; flex-wrap:wrap; }
+.aa-chip button{ border:0; background:transparent; cursor:pointer; opacity:.7 }
+
+/* ===== Chat layout ===== */
+#aaChat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100% - 56px); /* sous l'entête */
+  padding: 8px 12px 12px;
+  box-sizing: border-box;
+}
+
+.aa-chat-log {
+  flex: 1;
+  overflow: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* barre d’entrée */
+.aa-chat-input {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+.aa-chat-input input[type="text"] {
+  min-height: 42px;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+}
+.aa-icon {
+  appearance: none;
+  border: 0;
+  background: #F3F4F6;
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.aa-send {
+  appearance: none;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563EB, #0FBFB4);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* typing indicator — MASQUÉ par défaut ; ne s’affichera que si on retire [hidden] */
+#aaTyping[hidden] { display: none !important; }
+#aaTyping {
+  display: inline-flex;
+  gap: 6px;
+  padding: 10px 12px;
+  align-self: flex-start;
+}
+#aaTyping .dot {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: #cbd5e1;
+  animation: aa-bounce 1s infinite ease-in-out;
+}
+#aaTyping .dot:nth-child(2){ animation-delay: .15s; }
+#aaTyping .dot:nth-child(3){ animation-delay: .3s; }
+
+@keyframes aa-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: .6; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* évite “un chat sous l’extension” dû à des marges *globales* */
+.aa-panel.view {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+/**/
+
+/* === Chat full-height === */
+#view-chat .aa-chat {
+  display: flex;
+  flex-direction: column;
+  /* adapte la marge selon ta bannière/heading */
+  min-height: calc(100vh - 100px);
+}
+
+#view-chat .aa-chat-log {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 10px 12px;
+  scroll-behavior: smooth;
+}
+
+.aa-time {
+  display: block;
+  font-size: 12px;
+  opacity: .65;
+  margin-top: 6px;
+  text-align: right; /* s’aligne avec la bulle */
+}
+ /*_______________________ 
+ /* bulles & méta */
+.aa-msg { display:flex; flex-direction:column; margin:10px 12px; }
+.aa-msg.me { align-items: flex-end; }
+.aa-msg.bot { align-items: flex-start; }
+
+.aa-bubble {
+  max-width: 70%;
+  padding: 10px 12px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.aa-msg.me .aa-bubble {
+  background: linear-gradient(135deg, #2563EB, #0FBFB4);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+
+.aa-msg.bot .aa-bubble {
+  background: #fff;
+  color: #111827;
+  border: 1px solid rgba(0,0,0,.08);
+  border-bottom-left-radius: 6px;
+}
+
+.aa-meta {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .6;
+}
+
+/* pièces jointes en chips */
+.aa-files { margin-top: 6px; display:flex; flex-wrap:wrap; gap:6px; }
+.aa-filechip {
+  display:inline-block; padding:4px 8px; border-radius:999px;
+  font-size:12px; border:1px solid rgba(0,0,0,.12); background:#f9fafb;
+}
+
+/* --------------------------- */
+
+/* make sure text is horizontal and wraps normally inside the bubble */
+.aa-bubble { white-space: normal; word-break: break-word; }
+
+/* style for the chips your JS actually creates: <span class="aa-filechip"> */
+.aa-filechip{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-size:12px;
+}
+
+
+/* --- Verrouiller le scroll global UNIQUEMENT quand le chat est ouvert --- */
+body.is-chat-open { overflow: hidden; }
+
+body.is-chat-open .aa-app {
+  height: 100vh;              /* plein écran de l’extension */
+  display: grid;
+  grid-template-rows: auto 1fr; /* banner puis contenu */
+}
+
+/* La carte Chat occupe tout l’espace restant */
+body.is-chat-open #view-chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;           /* pas de scroll sur la carte */
+}
+
+/* La zone #aaChat remplit la carte, pas de débordement vertical */
+body.is-chat-open #aaChat {
+  flex: 1 1 auto;
+  min-height: 0;              /* indispensable pour que le flex-enfant puisse scroller */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Le SEUL scroll est ici */
+body.is-chat-open #aaChatLog {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* miniatures image dans la zone d’attachement ET dans les bulles */
+.aa-thumb {
+  max-width: 180px;
+  max-height: 120px;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.aa-files { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+.aa-filechip {
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:12px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#f9fafb;
+}
+/**/
+.aa-files { margin-top: 6px; display:flex; gap:8px; flex-wrap:wrap; }
+.aa-img   { max-width: 220px; max-height: 180px; border-radius:12px; display:block; }

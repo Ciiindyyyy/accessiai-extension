@@ -1,0 +1,17 @@
+# Build / outils
+node_modules/
+dist/
+build/
+
+# Env & secrets (au cas où)
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Éditeurs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

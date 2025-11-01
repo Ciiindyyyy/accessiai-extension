@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AccessiAI</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="aa-app">
+    <!-- Banner -->
+    <header class="aa-banner">
+      <div class="aa-brand">
+        <img src="assets/accessiailogo.png" alt="AccessiAI logo" class="aa-logo-img" />
+        <div>
+          <h1 class="aa-title">AccessiAI</h1>
+          <p class="aa-tag">Making the Web Accessible for Everyone</p>
+        </div>
+      </div>
+      <button id="aboutBtn" class="aa-icon-btn" aria-label="About AccessiAI" title="About AccessiAI">ℹ️</button>
+    </header>
+
+    <!-- HOME VIEW -->
+    <section id="view-home" class="aa-panel view-home">
+      <h2 class="aa-section-title">Quick actions</h2>
+      <div class="aa-actions">
+        <!-- updated to open their dedicated pages -->
+        <button class="aa-action aa-action-mode" data-open="view-simplify">
+          <span class="aa-action-ico">🧩</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Simplify</span>
+            <span class="aa-action-desc">Summarize & simplify complex text</span>
+          </div>
+        </button>
+        <button class="aa-action aa-action-mode" data-open="view-explain">
+          <span class="aa-action-ico">💡</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Explain</span>
+            <span class="aa-action-desc">Clarify concepts in simple words</span>
+          </div>
+        </button>
+        <button class="aa-action aa-action-mode" data-open="view-translate">
+          <span class="aa-action-ico">🌍</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Translate</span>
+            <span class="aa-action-desc">Instant multilingual translation</span>
+          </div>
+        </button>
+        <button class="aa-action aa-action-mode" data-open="view-correct">
+          <span class="aa-action-ico">✅</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Correct</span>
+            <span class="aa-action-desc">Fix grammar and style</span>
+          </div>
+        </button>
+        <button class="aa-action aa-action-mode" data-open="view-writer">
+          <span class="aa-action-ico">✏️</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Writer</span>
+            <span class="aa-action-desc">Generate original content</span>
+          </div>
+        </button>
+        <button class="aa-action aa-action-mode" data-open="view-rewriter">
+          <span class="aa-action-ico">🖊️</span>
+          <div class="aa-action-text">
+            <span class="aa-action-title">Rewriter</span>
+            <span class="aa-action-desc">Improve existing text</span>
+          </div>
+        </button>
+      </div>
+
+      <div class="aa-status-row">
+        <span class="aa-hint">Select text on the page, then choose an action.</span>
+      </div>
+
+      <div class="aa-toggle-row">
+        <label class="aa-toggle-label" for="bubbleToggle">Floating bubble</label>
+        <label class="aa-switch">
+          <input type="checkbox" id="bubbleToggle" />
+          <span class="aa-slider"></span>
+        </label>
+      </div>
+
+      <button id="openChat" class="aa-chat-btn">💭 Chat Assistant (Advanced)</button>
+    </section>
+
+    <!-- SIMPLIFY VIEW -->
+    <section id="view-simplify" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Simplify</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">Paste or write the text you want to simplify</label>
+        <textarea id="simplifyInput" class="aa-textarea" rows="7" placeholder="Paste text here…"></textarea>
+        <div class="aa-form-row">
+          <button id="simplifyRun" class="aa-btn-primary">Simplify</button>
+          <button id="simplifyCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="simplifyResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- EXPLAIN VIEW -->
+    <section id="view-explain" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Explain</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">Paste or write the text you want explained</label>
+        <textarea id="explainInput" class="aa-textarea" rows="7" placeholder="Paste text here…"></textarea>
+        <div class="aa-form-row">
+          <button id="explainRun" class="aa-btn-primary">Explain</button>
+          <button id="explainCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="explainResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- TRANSLATE VIEW -->
+    <section id="view-translate" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Translate</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">Paste text to translate</label>
+        <!-- ------------------------------------------------------- -->
+        <div class="aa-row" id="translateControls">
+          <label class="aa-select">
+            <span>From</span>
+            <select id="trFrom">
+              <option value="">Auto</option>
+              <!-- options dynamiques -->
+            </select>
+          </label>
+
+          <button id="trSwap" class="aa-btn" type="button" title="Swap">↔︎</button>
+
+          <label class="aa-select">
+            <span>To</span>
+            <select id="trTo" required></select>
+          </label>
+        </div>
+        <!-- ------------------------------------------------------- -->
+        <textarea id="translateInput" class="aa-textarea" rows="7" placeholder="Paste text here…"></textarea>
+        <p class="aa-hint">If “From” is set to Auto, the source language will be detected automatically.</p>
+
+        <div class="aa-form-row">
+          <button id="translateRun" class="aa-btn-primary">Translate</button>
+          <button id="translateCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="translateResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- CORRECT VIEW -->
+    <section id="view-correct" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Correct</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">Paste text to correct grammar and style</label>
+        <textarea id="correctInput" class="aa-textarea" rows="7" placeholder="Paste text here…"></textarea>
+        <div class="aa-form-row">
+          <button id="correctRun" class="aa-btn-primary">Correct</button>
+          <button id="correctCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="correctResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- WRITER VIEW -->
+    <section id="view-writer" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Writer</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">What do you want me to write?</label>
+        <textarea id="writerInput" class="aa-textarea" rows="5" placeholder="e.g., Write a 100-word intro about cyber hygiene for students."></textarea>
+        <div class="aa-form-row">
+          <button id="writerRun" class="aa-btn-primary">Generate</button>
+          <button id="writerCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="writerResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- REWRITER VIEW -->
+    <section id="view-rewriter" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Rewriter</h2>
+        <span></span>
+      </div>
+      <div class="aa-form">
+        <label class="aa-label">Paste your text to improve</label>
+        <textarea id="rewriterInput" class="aa-textarea" rows="7" placeholder="Paste text here…"></textarea>
+        <div class="aa-form-row">
+          <button id="rewriterRun" class="aa-btn-primary">Improve</button>
+          <button id="rewriterCopy" class="aa-btn" disabled>Copy</button>
+        </div>
+      </div>
+      <div id="rewriterResult" class="aa-result" tabindex="0"></div>
+    </section>
+
+    <!-- ===== CHAT VIEW ===== -->
+    <section id="view-chat" class="aa-panel view" hidden>
+      <div class="aa-panel-head">
+        <button class="aa-back" data-open="view-home">← Back</button>
+        <h2 class="aa-section-title">Chat Assistant</h2>
+        <span></span>
+      </div>
+
+      <div id="aaChat" class="aa-chat">
+        <div id="aaChatLog" class="aa-chat-log" aria-live="polite"></div>
+
+        <!-- Typing indicator (masqué par défaut) -->
+        <div id="aaTyping" class="aa-typing" hidden>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+        <!-- Attachments (images/audio/video… bientôt) -->
+        <div id="aaAttachments" class="aa-attach" hidden></div>
+
+        <!-- Input row -->
+        <div class="aa-chat-input">
+          <input id="aaChatText" type="text" placeholder="Ask anything… (images/audio coming soon)" />
+          <input id="aaFile" type="file" hidden accept="image/*,audio/*,video/*" />
+          <button id="aaAttachBtn" class="aa-icon" title="Attach file" aria-label="Attach">📎</button>
+          <button id="aaSendBtn" class="aa-send">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About modal & toast -->
+    <dialog id="aboutModal" class="aa-modal">
+      <form method="dialog" class="aa-modal-card">
+        <header class="aa-modal-header">
+          <h3>About AccessiAI</h3>
+          <button value="close" class="aa-icon-btn" aria-label="Close">✖️</button>
+        </header>
+        <article class="aa-modal-body">
+          <p><strong>Here’s how you can use our innovative suite of APIs to bring your ideas to life:</strong></p>
+          <ul class="aa-list">
+            <li>💭 <strong>Prompt API</strong>: generate dynamic user prompts.</li>
+            <li>🔤 <strong>Proofreader API</strong>: correct grammar mistakes.</li>
+            <li>📄 <strong>Summarizer API</strong>: distill complex information.</li>
+            <li>🌐 <strong>Translator API</strong>: add multilingual capabilities.</li>
+            <li>✏️ <strong>Writer API</strong>: create original content.</li>
+            <li>🖊️ <strong>Rewriter API</strong>: improve content with alternatives.</li>
+          </ul>
+          <p>All client-side for privacy and resilience.</p>
+        </article>
+        <footer class="aa-modal-footer">
+          <button value="close" class="aa-btn aa-btn-primary">Close</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <div id="toast" class="aa-toast" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
