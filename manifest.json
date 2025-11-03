@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AccessiAI",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Making the Web Accessible for Everyone",
   "action": {
     "default_popup": "popup.html",
