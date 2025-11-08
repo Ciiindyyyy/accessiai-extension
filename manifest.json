@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AccessiAI",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Making the Web Accessible for Everyone",
   "action": {
     "default_popup": "popup.html",
@@ -18,7 +18,7 @@
     "128": "assets/icon128.png"
   },
   "background": { "service_worker": "background.js", "type": "module" },
-  "permissions": ["activeTab", "storage", "contextMenus", "tabs"],
+  "permissions": ["activeTab", "storage", "contextMenus"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {

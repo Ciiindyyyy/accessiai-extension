@@ -52,7 +52,8 @@ function tabsSendMessage(tabId, payload) {
 
 // Envoie un message à l’onglet actif si possible
 async function sendToActiveTab(payload) {
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  //const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const [tab] = await chrome.runtime.getContexts?.() ?? [];
   if (!tab?.id) throw new Error('No active tab');
   return tabsSendMessage(tab.id, payload);
 }
@@ -391,7 +392,8 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
           }
           // fallback (rare) : ouvrir la page popup dans un onglet
           const url = chrome.runtime.getURL('popup.html');
-          await chrome.tabs.create({ url });
+          //await chrome.tabs.create({ url });
+          await chrome.windows.create({ url });
           break;
 
         }
