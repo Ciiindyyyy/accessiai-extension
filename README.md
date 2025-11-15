@@ -99,7 +99,8 @@ AccessiAI was built for the Google Chrome Built-in AI Challenge 2025 to provide:
   It solves the problem of complex online content by delivering instant, privacy-respecting AI assistance.
 
 🧩 License
-MIT — free to modify, share, and improve. ( You can contact me before and after modification )
+This project is licensed under the MIT License. You are free to use, modify, and share the code.
+If you plan to make significant modifications or publish derived versions, please contact me beforehand.
 
 💬 Support
 
