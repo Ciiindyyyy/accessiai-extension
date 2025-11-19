@@ -4,7 +4,7 @@ Making the Web Accessible for Everyone
 🔗 Chrome Web Store (official link)
 https://chromewebstore.google.com/detail/nodgcdoambnmoodclmnkolkniaklkmhd
 
-AccessiAI is a powerful Chrome extension that uses local Google Gemini Nano APIs + a secure Cloudflare Worker to make any online content easier to understand, correct, translate, rewrite, and summarize — instantly and privately.
+AccessiAI is a powerful Chrome extension that uses local Google Gemini Nano APIs + a secure Cloudflare Worker to make any online content easier to understand, correct, translate, rewrite, and summarize, instantly and privately.
 
 Designed for students, professionals, non-native speakers, researchers, and anyone who wants a clearer, smarter, more accessible web experience.
 
