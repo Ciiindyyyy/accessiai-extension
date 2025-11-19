@@ -77,28 +77,32 @@ accessiai-backend/
    └─ index.js     # secure proxy for Gemini API
 
 🛠 Installation (Dev Mode)
-Download the ZIP
-Extract it
-Go to chrome://extensions
-Enable "Developer mode"
-Click Load unpacked
+
+Download the ZIP,
+Extract it,
+Go to chrome://extensions,
+Enable "Developer mode",
+Click Load unpacked,
 Select the folder accessiai-extension/
 
-🧠 Technologies Used
-JavaScript, MV3 Service Worker
-Chrome Built-in AI APIs (Gemini Nano)
-Google Gemini Flash (Cloud)
-Cloudflare Worker (secure proxy)
-HTML / CSS UI
-Local session & storage system
+🧠 Technologies Used 
+
+JavaScript, MV3 Service Worker,
+Chrome Built-in AI APIs (Gemini Nano),
+Google Gemini Flash (Cloud),
+Cloudflare Worker (secure proxy),
+HTML / CSS UI,
+Local session & storage system.
 
 
-🏆 Motivation
-AccessiAI was built for the Google Chrome Built-in AI Challenge 2025 to provide:
+🏆 Motivation 
+
+AccessiAI was built for the Google Chrome Built-in AI Challenge 2025 to provide :
   accessibility, simplicity, local-first performance and a great user experience.
   It solves the problem of complex online content by delivering instant, privacy-respecting AI assistance.
 
-🧩 License
+🧩 License 
+
 This project is licensed under the MIT License. You are free to use, modify, and share the code.
 If you plan to make significant modifications or publish derived versions, please contact me beforehand.
 
